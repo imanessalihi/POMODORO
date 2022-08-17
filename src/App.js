@@ -16,7 +16,7 @@ function App() {
     const [bgButton, setbgButton]= useState("darkRed")
     const [count, setCount] = useState(0)
   return (
-    <div className="App ">
+    <div className={` h-screen ${bgColor}`} >
        <Header bgColor={bgColor} setbgColor={setbgColor} bgButton={bgButton} setbgButton={setbgButton} />
      {/* <CountDown/> 
       <Counter/>
