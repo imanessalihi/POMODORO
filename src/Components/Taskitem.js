@@ -6,7 +6,7 @@ import {
     FaPlusCircle,
     FaCheckCircle,
   } from "react-icons/fa";
-function Taskitem({element,showTaskDetail}) {
+function Taskitem({element,showTaskDetail, count, setCount, round, setRound}) {
    
     
     return (
@@ -17,12 +17,13 @@ function Taskitem({element,showTaskDetail}) {
         <div className="flex justify-between">
           <div className="flex mt-1">
             <FaCheckCircle className="mr-1 text-2xl text-[#eeeeee]" />
-            {element.titre}
+            {element.titre} {console.log(round)}
           </div>
           <div className="flex text-[#bbbbbb] font-bold ">
-            {/* <div className="mt-1">
+             <div className="mt-1">
               {count} / {round}
-            </div> */}
+            </div>
+                
             <button
               className="ml-2 p-1 text-[#bbbbbb] border-[0.3vh] border-[#eeeeee] rounded-md"
               onClick={() => showTaskDetail(element)}
@@ -40,6 +41,7 @@ function Taskitem({element,showTaskDetail}) {
         )}
       </div>
     </div>
+    
   );
     
 }

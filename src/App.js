@@ -15,15 +15,17 @@ function App() {
   const [bgColor,setbgColor]=useState("bg-pomodoro")
     const [bgButton, setbgButton]= useState("darkRed")
     const [count, setCount] = useState(0)
+    const [round, setRound] = useState(1);
   return (
-    <div className={` h-screen ${bgColor}`} >
+    <div className={` h-screen ${bgColor} `} >
+      <div className="md:mx-[30%]">
        <Header bgColor={bgColor} setbgColor={setbgColor} bgButton={bgButton} setbgButton={setbgButton} />
      {/* <CountDown/> 
       <Counter/>
       <TimerClass/>*/}
       <TimerFunctional bgColor={bgColor} setbgColor={setbgColor} bgButton={bgButton} setbgButton={setbgButton} count={count} setCount={setCount}/>
-      <Tasks bgColor={bgColor} setbgColor={setbgColor} bgButton={bgButton} setbgButton={setbgButton} count={count} setCount={setCount}/>
-          
+      <Tasks bgColor={bgColor} setbgColor={setbgColor} bgButton={bgButton} setbgButton={setbgButton} count={count} setCount={setCount} round={round} setRound={setRound}/>
+      </div>
     </div>
   );
 }

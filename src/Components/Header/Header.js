@@ -10,7 +10,7 @@ function Header({bgColor, setbgColor, bgButton, setbgButto}) {
     return (
         <div>
           <header className="App-header ">
-            <div className={`${bgColor} flex justify-between text-xl py-3 bg-[#D95550] text-white`}>
+            <div className={`${bgColor} flex justify-between text-xl py-3  text-white`}>
               <div className="ml-4 flex ">
                 <FaCheckCircle/>
                 <h1 className="ml-2 font-bold ">Pomofocus</h1>

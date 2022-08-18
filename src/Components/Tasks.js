@@ -16,17 +16,18 @@ function Tasks({
   bgButton,
   setbgButton,
   count,
-  setCount,
+  setCount, round, setRound
 }) {
   const [display, setDisplay] = useState(false);
   const [displayDetail, setDisplayDetail] = useState(false);
 
-  const [round, setRound] = useState(1);
+  
   const [note, setNote] = useState(false);
   const [title, setTitle] = useState("");
   const [noteText, setNoteText] = useState("");
   const [todos, setTodos] = useState([]);
   const [task, setTask] = useState(false);
+  const [taskitems, setTaskItems] = useState(true)
 
 const [id,setID]=useState(0)
 
@@ -87,6 +88,14 @@ if(display==false && displayDetail==false){
   hide();
   }
 
+  function deleteTask(id) {
+    let newtodos = todos.filter(el => (
+      id!=el.id
+  ))
+  setTodos(newtodos)
+    
+  }
+
   function submitTask() {
 
     setTodos([...todos, { id:id ,titre: title, notes: noteText,open:false }]);
@@ -104,7 +113,7 @@ setID(id+1)
     <div>
       <div className={`${bgColor} `}>
         <div className="flex flex-row justify-between mx-6 text-xl font-bold text-white">
-          <p>Tasks</p>
+          <p>Tasks</p> {count}
           <button className="p-2 bg-[#ffffff1a] rounded-md">
             <FaEllipsisV />
           </button>
@@ -118,8 +127,8 @@ setID(id+1)
               {todos.map((item) => {
               return (
 
-    item.open==true && displayDetail==true?   <Popup  nameTitle={nameTitle} changeTask={changeTask} round= {round} setRound={setRound} note={note}  element={item} writeNote={writeNote} showNote={showNote} hide ={hide} submitTask={submitTask} />   :      
-<Taskitem element={item} showTaskDetail={showTaskDetail} />
+    item.open==true && displayDetail==true?   <Popup  nameTitle={nameTitle} changeTask={changeTask} round= {round} note={note} setRound={setRound} element={item} writeNote={writeNote} showNote={showNote} hide ={hide} submitTask={submitTask}  deleteTask={deleteTask} />   :      
+<Taskitem element={item} showTaskDetail={showTaskDetail} count={count} round= {round} setRound={setRound} />
 
 
 )
@@ -129,7 +138,7 @@ setID(id+1)
       
       
 
-        {display &&  <Popup modifynameTitle={modifynameTitle} nameTitle={nameTitle} element="" round= {round} setRound={setRound} note={note} writeNote={writeNote} showNote={showNote} hide ={hide} submitTask={submitTask} />}
+        {display &&  <Popup modifynameTitle={modifynameTitle} nameTitle={nameTitle} element="" round= {round} setRound={setRound} note={note} writeNote={writeNote} showNote={showNote} hide ={hide} submitTask={submitTask}  />}
         
       </div>
     </div>

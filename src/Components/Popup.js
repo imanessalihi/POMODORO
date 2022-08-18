@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Popup({nameTitle,element, changeTask, round, setRound, note, writeNote, showNote, hide,submitTask}   ) {
+function Popup({nameTitle,element, changeTask, round, setRound, note, writeNote, showNote, hide,submitTask, deleteTask}   ) {
     const [text,setText]=React.useState(element.titre)
     function changeNameTitle (e){
        setText(e.target.value)
@@ -9,7 +9,7 @@ function Popup({nameTitle,element, changeTask, round, setRound, note, writeNote,
      
 
 <div
-className={`min-h-[30vh] bg-white w-[42vh] mt-6 rounded-md flex flex-col `}
+className={`min-h-[30vh] bg-white w-[42vh] mt-6 rounded-md flex flex-col mb-2 `}
 >
     {element != "" ? <input
   type="text"
@@ -79,7 +79,18 @@ className={`min-h-[30vh] bg-white w-[42vh] mt-6 rounded-md flex flex-col `}
   )}
   <button className="underline">+ Add Project</button>
 </div>
-<div className="bg-[#eeeeee] h-[7vh] rounded-b-md flex justify-end pr-4 font-bold">
+<div className="bg-[#eeeeee] h-[7vh] rounded-b-md flex justify-between pr-4 font-bold">
+
+<div>
+{element != "" ?  <button
+    className="text-white bg-[#bbbbbb] rounded-md h-[4vh] w-[8vh] mt-3 ml-6"
+    onClick={() => deleteTask(element.id)}
+  >
+    Delete
+  </button> :  ""}
+  </div>
+
+  <div className="flex justify-end">  
   <button
     className="text-[#aaaaaa]"
     onClick={() => hide()}
@@ -99,7 +110,10 @@ className={`min-h-[30vh] bg-white w-[42vh] mt-6 rounded-md flex flex-col `}
   >
     Save
   </button> }
- 
+  </div>
+  
+  
+
 </div>
 </div>
 );
